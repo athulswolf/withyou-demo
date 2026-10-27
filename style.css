@@ -371,7 +371,7 @@ img {
 .hero-image-grid {
     position: relative;           /* tiles measure their offsets from here */
     display: grid;
-    aspect-ratio: 3 / 2;          /* matches dc.jpg (1536 × 1024) */
+    aspect-ratio: 3 / 2;          /* matches dc.png (1536 × 1024) */
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 0.8fr 1fr 1.2fr;
     gap: 6px;
@@ -384,7 +384,7 @@ img {
     overflow: hidden;
     border-radius: 6px;
 
-    background-image: url("images/dc.jpg");
+    background-image: url("images/dc.png");
     background-repeat: no-repeat;
     background-size: cover;       /* fallback until script runs */
     background-position: center;
