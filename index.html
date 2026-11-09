@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=5">
 </head>
 
 <body>
@@ -59,24 +59,19 @@
     <section class="hero-banner" id="home">
 
         <div class="hero-banner-frame">
-            <img src="images/hero-banner.jpg"
-                 width="1944" height="809"
-                 alt="WITH YOU Charitable Trust prize competition. One ticket, a world of good. Give ₹250 to help build care. Ticket price ₹250, 37 winners. 1st prize Land Rover Defender, 2nd Mahindra Thar Facelift, 3rd Maruti Suzuki Fronx, 4th Royal Enfield, 5th TVS Ntorq, 6th River Electric Scooter, 7th iPhone 17, 8th LG Refrigerator, 9th 55 inch Smart TV, 10th Gold Coin 2g.">
+            <!-- Desktop banner above 768px, mobile banner below -->
+            <picture>
+                <source media="(max-width: 768px)"
+                        srcset="images/hero-banner-mobile.jpg"
+                        width="1024" height="1536">
+                <img src="images/hero-banner.jpg"
+                     width="1774" height="887"
+                     alt="WITH YOU Charitable Trust. One ticket, a world of good. Participate and stand a chance to win exciting prizes including a Land Rover Defender, while supporting a good cause.">
+            </picture>
 
-            <!-- Clickable area over the "BUY TICKET NOW" in the image -->
+            <!-- Clickable area over "Buy Your Ticket Now" in the banner -->
             <a href="participate.html" class="hero-banner-hotspot"
-               aria-label="Buy ticket now"></a>
-        </div>
-
-        <!-- Shown on mobile, where the image text is too small to tap -->
-        <div class="hero-banner-mobile">
-            <div>
-                <strong>₹250</strong>
-                <span>per ticket · 37 winners</span>
-            </div>
-            <a href="participate.html" class="hero-banner-btn">
-                Buy Ticket Now <span aria-hidden="true">→</span>
-            </a>
+               aria-label="Buy your ticket now"></a>
         </div>
 
     </section>

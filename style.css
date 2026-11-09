@@ -1867,78 +1867,34 @@ a.contact-card:hover {
     height: auto;
 }
 
-/* Sits exactly over the BUY TICKET NOW button in the image */
+/* Sits over "Buy Your Ticket Now" in the desktop banner */
 .hero-banner-hotspot {
     position: absolute;
-    left: 27.6%;
-    top: 67.1%;
-    width: 21.8%;
-    height: 9.9%;
+    left: 5%;
+    top: 75.3%;
+    width: 32.4%;
+    height: 10.4%;
     border-radius: 999px;
     transition: box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .hero-banner-hotspot:hover {
-    background: rgba(255, 255, 255, 0.10);
-    box-shadow: 0 0 0 3px rgba(255, 214, 140, 0.55), 0 10px 30px -8px rgba(0, 0, 0, 0.45);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 3px rgba(255, 224, 150, 0.6), 0 12px 30px -8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-banner-hotspot:focus-visible {
-    outline: 3px solid #ffd68c;
+    outline: 3px solid #ffe096;
     outline-offset: 3px;
 }
 
-/* Mobile bar (hidden on desktop) */
-
-.hero-banner-mobile {
-    display: none;
-}
-
+/* Mobile banner: move the clickable area to its button */
 @media (max-width: 768px) {
     .hero-banner-hotspot {
-        display: none;
-    }
-
-    .hero-banner-mobile {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 14px;
-        padding: 14px 5%;
-        background: linear-gradient(135deg, #0f3d23, #176438);
-        color: #ffffff;
-    }
-
-    .hero-banner-mobile strong {
-        display: block;
-        font-size: 24px;
-        font-weight: 800;
-        line-height: 1.1;
-    }
-
-    .hero-banner-mobile span {
-        color: #bfe3d1;
-        font-size: 12px;
-        font-weight: 600;
-    }
-
-    .hero-banner-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 13px 18px;
-        background: #ffffff;
-        border-radius: 999px;
-        color: #176438 !important;
-        font-size: 14px;
-        font-weight: 800;
-        text-decoration: none;
-        white-space: nowrap;
-    }
-
-    .hero-banner-btn span {
-        color: #176438;
-        font-size: 14px;
+        left: 8.6%;
+        top: 84.6%;
+        width: 82.6%;
+        height: 9.1%;
     }
 }
 
