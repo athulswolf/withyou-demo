@@ -2404,3 +2404,77 @@ a.contact-card:hover {
         transform: translateY(0);
     }
 }
+
+
+/* ========================================
+   22. MARQUEE
+======================================== */
+
+.marquee {
+    overflow: hidden;
+    padding: 14px 0;
+    background: linear-gradient(90deg, #0f3d23, #176438 50%, #0f3d23);
+    border-top: 2px solid #e8c46a;
+    border-bottom: 2px solid #e8c46a;
+    color: #ffffff;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marqueeMove 40s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+.marquee-group {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.marquee-group span {
+    display: inline-flex;
+    align-items: center;
+    gap: 28px;
+    padding-right: 28px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+/* gold star between items */
+.marquee-group span::after {
+    content: "★";
+    color: #f3cf6d;
+    font-size: 13px;
+}
+
+@keyframes marqueeMove {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+@media (max-width: 600px) {
+    .marquee {
+        padding: 11px 0;
+    }
+
+    .marquee-track {
+        animation-duration: 30s;
+    }
+
+    .marquee-group span {
+        gap: 18px;
+        padding-right: 18px;
+        font-size: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+        animation-duration: 120s;
+    }
+}
