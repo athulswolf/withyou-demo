@@ -2478,3 +2478,106 @@ a.contact-card:hover {
         animation-duration: 120s;
     }
 }
+
+
+/* ========================================
+   23. SAMPLE TICKET — GREEN THEME
+======================================== */
+
+.ticket-demo {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border: 0;
+    background:
+        radial-gradient(circle at 85% 20%, rgba(24, 185, 133, 0.35), transparent 45%),
+        radial-gradient(circle at 10% 90%, rgba(232, 196, 106, 0.12), transparent 40%),
+        linear-gradient(135deg, #145a33 0%, #176438 55%, #1b7444 100%);
+    box-shadow: 0 30px 60px -36px rgba(15, 61, 35, 0.8);
+}
+
+/* faint dot texture, like the hero */
+.ticket-demo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.10) 1.4px, transparent 2px);
+    background-size: 26px 26px;
+    pointer-events: none;
+}
+
+.ticket-demo-tag {
+    background: rgba(232, 196, 106, 0.18);
+    border: 1px solid rgba(232, 196, 106, 0.55);
+    color: #f3cf6d;
+}
+
+.ticket-demo-text h3 {
+    color: #ffffff;
+}
+
+.ticket-demo-text > p {
+    color: #cfe9dc;
+}
+
+.ticket-steps li {
+    color: #ffffff;
+}
+
+.ticket-steps b {
+    background: linear-gradient(180deg, #f6d77e, #e2b84c);
+    color: #0f3d23;
+}
+
+/* Gold button to match the banner */
+.ticket-demo .buy-btn {
+    background: linear-gradient(180deg, #f8dc85, #e6b94a);
+    box-shadow: 0 14px 26px -14px rgba(0, 0, 0, 0.6);
+    color: #0f3d23;
+}
+
+.ticket-demo .buy-btn:hover {
+    background: linear-gradient(180deg, #fbe39a, #eec25a);
+}
+
+/* Ticket: cream body + gold stub */
+.ticket {
+    filter: drop-shadow(0 28px 34px rgba(0, 0, 0, 0.35));
+}
+
+.ticket-stub {
+    background:
+        radial-gradient(circle at 80% 15%, rgba(255, 255, 255, 0.45), transparent 55%),
+        linear-gradient(160deg, #f8dc85, #e2b84c);
+    border-left-color: rgba(15, 61, 35, 0.35);
+    color: #0f3d23;
+}
+
+.ticket-stub small {
+    color: #5c4a14;
+}
+
+.ticket-stub strong {
+    color: #0f3d23;
+}
+
+.ticket-stub span {
+    color: #3d3310;
+}
+
+.ticket-barcode {
+    background:
+        repeating-linear-gradient(90deg,
+            #0f3d23 0 2px, transparent 2px 4px,
+            #0f3d23 4px 5px, transparent 5px 8px,
+            #0f3d23 8px 11px, transparent 11px 12px,
+            #0f3d23 12px 13px, transparent 13px 16px);
+    opacity: 0.85;
+}
+
+@media (max-width: 600px) {
+    .ticket-stub {
+        border-top-color: rgba(15, 61, 35, 0.35);
+    }
+}
