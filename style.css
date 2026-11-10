@@ -2596,3 +2596,211 @@ a.contact-card:hover {
         grid-template-columns: 110px minmax(0, 1fr);
     }
 }
+
+
+/* ========================================
+   25. BANNER — WHOLE IMAGE CLICKABLE
+======================================== */
+
+.hero-banner-hotspot,
+.hero-banner-hotspot:hover {
+    inset: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .hero-banner-hotspot {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.hero-banner-hotspot:focus-visible {
+    outline: 3px solid #ffe096;
+    outline-offset: -6px;
+}
+
+
+/* ========================================
+   26. BANNER ANIMATIONS
+   Positions are % of the banner image, so they
+   stay on the right spot at any screen size.
+======================================== */
+
+.hero-banner-frame {
+    overflow: hidden;
+}
+
+.banner-stage {
+    position: relative;
+    transform-origin: 65% 60%;
+    animation: bannerZoom 18s ease-in-out infinite alternate;
+}
+
+@keyframes bannerZoom {
+    from { transform: scale(1); }
+    to   { transform: scale(1.045); }
+}
+
+.banner-fx {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    /* DESKTOP positions */
+    --glow-l-x: 53.2%;  --glow-l-y: 57.9%;
+    --glow-r-x: 72.3%;  --glow-r-y: 57.4%;
+    --glow-size: 9%;
+
+    --s1-x: 38.6%; --s1-y: 22.0%;
+    --s2-x: 48.4%; --s2-y: 33.0%;
+    --s3-x: 5.6%;  --s3-y: 23.5%;
+    --s4-x: 24.5%; --s4-y: 21.5%;
+    --s5-x: 33.5%; --s5-y: 43.5%;
+    --s6-x: 63.5%; --s6-y: 16.0%;
+    --spark: 2.6%;
+
+    --shine-x: 5%;  --shine-y: 74.5%;
+    --shine-w: 39%; --shine-h: 13.5%;
+}
+
+/* Headlight glow */
+.fx-glow {
+    position: absolute;
+    width: var(--glow-size);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(200, 230, 255, 0.65) 18%,
+        rgba(150, 200, 255, 0.25) 40%,
+        transparent 70%);
+    mix-blend-mode: screen;
+    animation: headlight 3.2s ease-in-out infinite;
+}
+
+.fx-glow--l { left: var(--glow-l-x); top: var(--glow-l-y); }
+.fx-glow--r { left: var(--glow-r-x); top: var(--glow-r-y); animation-delay: 0.15s; }
+
+@keyframes headlight {
+    0%, 100% { opacity: 0.25; transform: translate(-50%, -50%) scale(0.75); }
+    45%      { opacity: 1;    transform: translate(-50%, -50%) scale(1.15); }
+    55%      { opacity: 0.85; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Gold sparkles around the heading */
+.fx-spark {
+    position: absolute;
+    width: var(--spark);
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%) scale(0);
+    background: radial-gradient(circle, #fff8d6 0%, #f6d77e 35%, transparent 70%);
+    clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+    filter: drop-shadow(0 0 6px rgba(255, 220, 120, 0.9));
+    animation: sparkle 3s ease-in-out infinite;
+}
+
+.fx-s1 { left: var(--s1-x); top: var(--s1-y); animation-delay: 0s; }
+.fx-s2 { left: var(--s2-x); top: var(--s2-y); animation-delay: 0.6s; }
+.fx-s3 { left: var(--s3-x); top: var(--s3-y); animation-delay: 1.2s; width: calc(var(--spark) * 0.7); }
+.fx-s4 { left: var(--s4-x); top: var(--s4-y); animation-delay: 1.8s; width: calc(var(--spark) * 0.8); }
+.fx-s5 { left: var(--s5-x); top: var(--s5-y); animation-delay: 2.3s; width: calc(var(--spark) * 0.6); }
+.fx-s6 { left: var(--s6-x); top: var(--s6-y); animation-delay: 0.9s; width: calc(var(--spark) * 0.75); }
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0) rotate(0deg); }
+    30%      { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(45deg); }
+    55%      { opacity: 0; transform: translate(-50%, -50%) scale(0.3) rotate(90deg); }
+}
+
+/* Golden shine sweeping across "Donate and Win" */
+.fx-shine {
+    position: absolute;
+    left: var(--shine-x);
+    top: var(--shine-y);
+    width: var(--shine-w);
+    height: var(--shine-h);
+    overflow: hidden;
+    border-radius: 12px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    animation: donatePulse 2.6s ease-in-out infinite;
+}
+
+.fx-shine::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    bottom: -20%;
+    width: 30%;
+    left: -40%;
+    background: linear-gradient(100deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.0) 20%,
+        rgba(255, 255, 255, 0.85) 50%,
+        rgba(255, 255, 255, 0.0) 80%,
+        transparent 100%);
+    mix-blend-mode: overlay;
+    transform: skewX(-18deg);
+    animation: shineSweep 3.5s ease-in-out infinite;
+}
+
+@keyframes shineSweep {
+    0%   { left: -40%; }
+    55%  { left: 115%; }
+    100% { left: 115%; }
+}
+
+@keyframes donatePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 214, 90, 0); background: rgba(255, 240, 180, 0); }
+    50%      { box-shadow: 0 0 28px 4px rgba(255, 214, 90, 0.45); background: rgba(255, 240, 180, 0.12); }
+}
+
+/* MOBILE banner positions */
+@media (max-width: 768px) {
+    .banner-fx {
+        --glow-l-x: 25.6%;  --glow-l-y: 58.6%;
+        --glow-r-x: 54.6%;  --glow-r-y: 58.3%;
+        --glow-size: 15%;
+
+        --s1-x: 67.2%; --s1-y: 12.0%;
+        --s2-x: 78.2%; --s2-y: 18.2%;
+        --s3-x: 8.5%;  --s3-y: 19.5%;
+        --s4-x: 41.0%; --s4-y: 12.0%;
+        --s5-x: 55.0%; --s5-y: 23.5%;
+        --s6-x: 12.0%; --s6-y: 37.0%;
+        --spark: 5.5%;
+
+        --shine-x: 7%;   --shine-y: 84.2%;
+        --shine-w: 86%;  --shine-h: 9.6%;
+    }
+
+    .banner-stage {
+        transform-origin: 40% 60%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .banner-stage,
+    .fx-glow,
+    .fx-spark,
+    .fx-shine,
+    .fx-shine::before {
+        animation: none !important;
+    }
+
+    .fx-spark,
+    .fx-shine::before {
+        display: none;
+    }
+}

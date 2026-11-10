@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=8">
+    <link rel="stylesheet" href="style.css?v=10">
 </head>
 
 <body>
@@ -59,17 +59,33 @@
     <section class="hero-banner" id="home">
 
         <div class="hero-banner-frame">
-            <!-- Desktop banner above 768px, mobile banner below -->
-            <picture>
-                <source media="(max-width: 768px)"
-                        srcset="images/hero-banner-mobile.jpg"
-                        width="1024" height="1536">
-                <img src="images/hero-banner.jpg"
-                     width="1774" height="887"
-                     alt="WITH YOU Charitable Trust. One ticket, a world of good. Participate and stand a chance to win exciting prizes including a Land Rover Defender, while supporting a good cause.">
-            </picture>
+            <!-- Animated stage: banner + effects move together -->
+            <div class="banner-stage">
+                <!-- Desktop banner above 768px, mobile banner below -->
+                <picture>
+                    <source media="(max-width: 768px)"
+                            srcset="images/hero-banner-mobile.jpg"
+                            width="1024" height="1536">
+                    <img src="images/hero-banner.jpg"
+                         width="1774" height="887"
+                         alt="WITH YOU Charitable Trust. One ticket, a world of good. Donate and win: 1st prize Land Rover Defender, while supporting a good cause.">
+                </picture>
 
-            <!-- Clickable area over "Buy Your Ticket Now" in the banner -->
+                <!-- Effects (decorative) -->
+                <div class="banner-fx" aria-hidden="true">
+                    <span class="fx-glow fx-glow--l"></span>
+                    <span class="fx-glow fx-glow--r"></span>
+                    <span class="fx-spark fx-s1"></span>
+                    <span class="fx-spark fx-s2"></span>
+                    <span class="fx-spark fx-s3"></span>
+                    <span class="fx-spark fx-s4"></span>
+                    <span class="fx-spark fx-s5"></span>
+                    <span class="fx-spark fx-s6"></span>
+                    <span class="fx-shine"></span>
+                </div>
+            </div>
+
+            <!-- Whole banner is clickable: goes to the donate page -->
             <a href="participate.html" class="hero-banner-hotspot"
                aria-label="Donate now"></a>
         </div>
